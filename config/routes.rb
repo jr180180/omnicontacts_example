@@ -1,8 +1,13 @@
 OmnicontactsExample::Application.routes.draw do
 
+  # Use the following route if you need to save custom parameters.
+  get 'invites/begin' => 'invites#begin'
+  # The following is the callback route
 	get "/invites/:provider/contact_callback" => "invites#index"
+  # Should the callback fail, the following route will be called
 	get "/contacts/failure" => "invites#failure"
 	root :to => "invites#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
